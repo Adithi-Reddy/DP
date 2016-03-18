@@ -1,0 +1,36 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int T=sc.nextInt(),N;
+		int[] arr, mem;
+		for(int i=0;i<T;i++){
+		    N=sc.nextInt();
+		    arr=new int[N];
+		    for(int p=0;p<N;p++){
+		        arr[p]=sc.nextInt();
+		    }
+		    mem=new int[N];
+			Arrays.fill(mem,-1);
+			mem[0]=1;
+			for( int k=1;k<N;k++){
+			    for(int j=0;j<k;j++){
+			        if(arr[j]<arr[k]){
+			            /*if(mem[j]==-1){
+			                mem[i]=mem[j]+1;
+			            }else{*/
+			                mem[k]=Math.max(mem[k],mem[j]+1);
+			           // }
+			            //System.out.println(i+" : "+j+" val[i] "+mem[k]);
+			        }
+			    }
+			}			
+			System.out.println(mem[N-1]);
+		}
+	
+	}
+}
